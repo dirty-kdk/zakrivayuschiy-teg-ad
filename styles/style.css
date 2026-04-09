@@ -10,7 +10,150 @@
 
 */
 
+:root {
+  --section-width: clamp(375px, 100%, 700px);
+  --accent-color: #000000;
+  --font-size-title: clamp(1.5rem, 5vw, 3rem);
+  --header-padding: clamp(10px, 3vw, 20px);
+  --stroke-color: #000000;
+}
+
 .page {
+  font-family: var(--main-font), sans-serif;
+  font-variation-settings: 'wght' 700, 400;
   min-inline-size: 320px;
   min-block-size: 100dvb;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #fff;
+  border: 2px #000000 solid;
+  padding: 128px clamp(10px, 3vw, 20px);
+  margin-top: 100px;
+  margin-bottom: 100px;
+}
+
+.header h1 {
+  margin-bottom: clamp(5px, 2vw, 15px);
+  font-family: var(--acent-font);
+  font-weight: 400;
+  font-size: 65px;
+  vertical-align: bottom;
+  line-height: 100%;
+}
+
+.header h2 {
+  font-family: var(--acent-font);
+  font-size: 23px;
+  line-height: 100%;
+  text-transform: uppercase;
+}
+
+.card {
+  background-color: #fff;
+  border: 2px solid #000;
+  width: var(--section-width); /* Резиновая ширина из первого шага */
+  margin: 50px auto;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 1. Заголовок: жирный шрифт и правильные отступы */
+.card__title {
+  font-size: 18px;
+  font-weight: 700;
+  padding: 10px 10px 10px 20px; /* Отступы как в макете */
+  margin: 0;
+  border-bottom: 2px solid #000;
+}
+
+/* 2. Контейнер картинки и позиционирование лейбла */
+.card__image-wrapper {
+  position: relative;
+  line-height: 0;
+  border-bottom: 2px solid #000;
+}
+
+.card__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  aspect-ratio: 1 / 1; /* Чтобы картинка была квадратной, как в макете */
+}
+
+/* Лейбл: в верхнем правом углу, с обводкой и смешиванием */
+.card__label {
+  font-weight: 400;
+  font-family: var(--acent-font);
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  z-index: 1;
+  font-size: 14px;
+  opacity: 0.5;
+  mix-blend-mode: hard-light;
+  -webkit-text-stroke: 1px var(--stroke-color);
+}
+
+@supports not (-webkit-text-stroke: 1px black) {
+  .card__label {
+    text-shadow: 
+      1px 1px 0 var(--stroke-color),
+      -1px -1px 0 var(--stroke-color),
+      1px -1px 0 var(--stroke-color),
+      -1px 1px 0 var(--stroke-color);
+  }
+}
+
+.card__content {
+  padding: 25px; 
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.card__text {
+  margin: 0;
+  font-size: 18px;
+  line-height: 21px;
+  font-weight: 400;
+}
+
+.card__buttons {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 6px;
+}
+
+.like-icon {
+  border: none;
+  width: 38px;
+  height: 38px;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  cursor: pointer;
+}
+
+.card__save-button {
+  min-width: 120px;
+  height: 38px;
+  background: transparent;
+  border: 2px solid #000;
+  font-family: var(--acent-font);
+  font-size: 14px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card__like-button:focus, .card__save-button:focus {
+  outline: none;
 }

@@ -9,7 +9,11 @@
 }
 
 body {
-  margin: 0;
+  margin: 0 auto;
+  background-image: var(--body-patern);   
+  background-size: cover;
+  background-attachment: fixed; 
+  width: clamp(375px, 100%, 700px);
 }
 
 h1,
