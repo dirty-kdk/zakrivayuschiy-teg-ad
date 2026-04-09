@@ -1,1 +1,1 @@
-https://dirty-kdk.github.io/zakrivayuschiy-teg-ad/
+https://github.com/dirty-kdk/zakrivayuschiy-teg-ad
